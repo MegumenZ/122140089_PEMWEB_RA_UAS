@@ -1,0 +1,52 @@
+.keranjang-container {
+  padding: 2rem;
+}
+
+.keranjang-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.keranjang-item img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.qty-controls button {
+  padding: 0.3rem 0.7rem;
+}
+
+.hapus-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.checkout-area {
+  margin-top: 2rem;
+  border-top: 2px solid #ccc;
+  padding-top: 1rem;
+}
+
+.checkout-btn {
+  background-color: #2ecc71;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
