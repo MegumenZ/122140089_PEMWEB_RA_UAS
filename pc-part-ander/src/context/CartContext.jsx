@@ -1,46 +1,53 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const CartContext = createContext(); // ← ini tidak di-export langsung
+const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product) => {
+  function addToCart(product) {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
-      if (existingItem) {
+      const exist = prevItems.find((item) => item.id === product.id);
+      if (exist) {
+        // Jika sudah ada, tambah quantity
         return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
+        // Produk baru masuk keranjang dengan quantity minimal 1
         return [...prevItems, { ...product, quantity: 1 }];
       }
     });
-  };
+  }
 
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  const updateQuantity = (id, quantity) => {
+  function updateQuantity(productId, newQty) {
+    if (newQty < 1) return; // Minimal quantity 1
     setCartItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity: newQty } : item
+      )
     );
-  };
+  }
 
-  const clearCart = () => {
+  function removeFromCart(productId) {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== productId)
+    );
+  }
+
+  function clearCart() {
     setCartItems([]);
-  };
+  }
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
-        removeFromCart,
         updateQuantity,
+        removeFromCart,
         clearCart,
       }}
     >
@@ -49,5 +56,6 @@ export function CartProvider({ children }) {
   );
 }
 
-// Ini yang di-export agar bisa digunakan di komponen lain
-export const useCart = () => useContext(CartContext);
+export function useCart() {
+  return useContext(CartContext);
+}

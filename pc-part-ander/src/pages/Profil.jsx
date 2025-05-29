@@ -8,19 +8,51 @@ function Profil() {
   const [foto, setFoto] = useState("");
   const [previewFoto, setPreviewFoto] = useState("");
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("userProfil")) || {};
-    setNama(data.nama || "");
-    setNomor(data.nomor || "");
-    setEmail(data.email || "");
-    setFoto(data.foto || "");
-    setPreviewFoto(data.foto || "");
-  }, []);
+  // Fungsi untuk mengambil data dari backend
+  const fetchUserProfile = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:6543/user_profiles");
+      if (response.ok) {
+        const data = await response.json();
+        // Jika data ada, kita update state
+        if (data && data.length > 0) {
+          const userData = data[0]; // Mengambil data pertama, misalnya hanya satu profil
+          setNama(userData.nama);
+          setNomor(userData.nomor);
+          setEmail(userData.email);
+          setFoto(userData.foto);
+          setPreviewFoto(userData.foto);
+        }
+      } else {
+        console.error("Gagal mengambil data profil");
+      }
+    } catch (error) {
+      console.error("Terjadi kesalahan: ", error);
+    }
+  };
 
-  const handleSimpan = () => {
+  useEffect(() => {
+    fetchUserProfile(); // Memanggil fetch saat komponen pertama kali dimuat
+  }, []); // Empty dependency array, berarti hanya dijalankan sekali saat komponen dimuat
+
+  const handleSimpan = async () => {
     const data = { nama, nomor, email, foto };
-    localStorage.setItem("userProfil", JSON.stringify(data));
-    alert("Profil berhasil disimpan!");
+    try {
+      const response = await fetch("http://127.0.0.1:6543/user_profiles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        alert("Profil berhasil disimpan!");
+      } else {
+        alert("Gagal menyimpan profil.");
+      }
+    } catch (error) {
+      console.error("Terjadi kesalahan saat menyimpan profil: ", error);
+    }
   };
 
   const handleFotoChange = (e) => {

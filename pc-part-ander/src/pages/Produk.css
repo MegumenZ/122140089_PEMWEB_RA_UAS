@@ -1,0 +1,150 @@
+.produk-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.produk-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-tambah-produk {
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-tambah-produk:hover {
+  background-color: #005f99;
+}
+
+.produk-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.produk-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.produk-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.produk-file-input {
+  margin-bottom: 10px;
+}
+
+.produk-title,
+.produk-price-input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.produk-desc {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  resize: vertical;
+  box-sizing: border-box;
+  min-height: 60px;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.qty-controls button {
+  width: 32px;
+  height: 32px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.qty-controls button:hover {
+  background-color: #eee;
+}
+
+.qty-controls span {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.produk-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: green;
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.action-buttons .add-to-cart {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.action-buttons .add-to-cart:hover {
+  background-color: #2563eb;
+}
+
+.action-buttons .delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.action-buttons .delete:hover {
+  background-color: #b91c1c;
+}

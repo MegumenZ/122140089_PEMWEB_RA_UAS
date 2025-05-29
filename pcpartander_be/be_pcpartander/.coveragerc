@@ -1,0 +1,3 @@
+[run]
+source = be_pcpartander
+omit = be_pcpartander/test*

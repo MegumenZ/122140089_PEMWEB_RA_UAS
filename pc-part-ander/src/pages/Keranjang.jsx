@@ -1,8 +1,8 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext"; // sesuaikan path
 import { useNavigate } from "react-router-dom";
 import "./Keranjang.css";
 
-function Keranjang() {
+export default function Keranjang() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
@@ -17,8 +17,8 @@ function Keranjang() {
       total,
     };
 
-    clearCart(); // opsional: kalau mau clear setelah checkout
-    navigate("/pembayaran", { state: { transaksi } }); // <-- penting!
+    clearCart(); // opsional
+    navigate("/pembayaran", { state: { transaksi } });
   };
 
   return (
@@ -30,7 +30,8 @@ function Keranjang() {
         <div>
           {cartItems.map((item) => (
             <div className="keranjang-item" key={item.id}>
-              <img src={item.image} alt={item.title} />
+              {/* Jika ada image, tampilkan */}
+              {item.image && <img src={item.image} alt={item.title} />}
               <div className="keranjang-info">
                 <h3>{item.title}</h3>
                 <p>Rp {(item.price * 16000).toLocaleString()}</p>
@@ -64,5 +65,3 @@ function Keranjang() {
     </div>
   );
 }
-
-export default Keranjang;
