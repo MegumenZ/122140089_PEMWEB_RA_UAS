@@ -27,8 +27,8 @@ PC PART ANDER adalah website e-commerce untuk keperluan komponen PC yang dimana 
 | `Riwayat Transaksi` | Memiliki informasi terkait barang yang telah dibeli |
 
 ### Referensi
-[^1]: Implementation of React Vite in Airplane Ticket Booking System Interface Development Using Scrum Method [Link](https://ejournal.unama.ac.id/index.php/processor/article/view/2231).
-[^2]: Rancang Bangun E-Commerce Berbasis Single Page Application (SPA) Menggunakan ReactJS [Link](https://journal.institutpendidikan.ac.id/index.php/petik/article/view/1256)
-[^3]: Implementasi Information Schema Database Pada PostgreSQL untuk Pembuatan Tabel Informasi dengan Menggunakan Python Di PT XYZ [Link](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/2221)
+1. Implementation of React Vite in Airplane Ticket Booking System Interface Development Using Scrum Method [Link](https://ejournal.unama.ac.id/index.php/processor/article/view/2231).
+2. Rancang Bangun E-Commerce Berbasis Single Page Application (SPA) Menggunakan ReactJS [Link](https://journal.institutpendidikan.ac.id/index.php/petik/article/view/1256)
+3. Implementasi Information Schema Database Pada PostgreSQL untuk Pembuatan Tabel Informasi dengan Menggunakan Python Di PT XYZ [Link](https://jurnal.mdp.ac.id/index.php/jatisi/article/view/2221)
 
 
